@@ -1,0 +1,44 @@
+/********* margin and padding *********/
+
+.boxPaddingMargin(100);
+
+.boxPaddingMargin(@n) when (@n >= 0) {
+  .margin@{n} { margin: (0px + @n); }
+  .padding@{n} { padding: (0px + @n); }
+  .boxPaddingMarginDest(@n, top);
+  .boxPaddingMarginDest(@n, right);
+  .boxPaddingMarginDest(@n, bottom);
+  .boxPaddingMarginDest(@n, left);
+  
+  .boxPaddingMargin(@n - 5);
+}
+
+.boxPaddingMarginDest(@n, @dest){
+  .margin@{n}-@{dest} { margin-@{dest}: (0px + @n); }
+  .padding@{n}-@{dest} { padding-@{dest}: (0px + @n); }
+}
+
+/********* border *********/
+.borderWidth(5);
+
+.borderWidth(@n) when (@n >= 0) {
+  .border@{n} { 
+    border-color: black;
+    border-style: solid;
+    border-width: (0px + @n);
+  }
+  .borderWidthDest(@n, top);
+  .borderWidthDest(@n, right);
+  .borderWidthDest(@n, bottom);
+  .borderWidthDest(@n, left);
+  
+  .borderWidth(@n - 1);
+}
+
+.borderWidthDest(@n, @dest){
+  .border@{n}-@{dest} { 
+    border-@{dest}-width: (0px + @n); 
+    border-@{dest}-style: solid;
+    border-@{dest}-color: black;
+  }
+}
